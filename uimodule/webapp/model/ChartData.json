@@ -1,0 +1,23 @@
+{
+    "Cars": [{
+            "Brand": "Brand A",
+            "value": "20000"
+        },
+        {
+            "Brand": "Brand B",
+            "value": "30000"
+        },
+        {
+            "Brand": "Brand C",
+            "value": "10000"
+        },
+        {
+            "Brand": "Brand D",
+            "value": "20000"
+        },
+        {
+            "Brand": "Brand E",
+            "value": "50000"
+        }
+    ]
+}

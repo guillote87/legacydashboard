@@ -1,0 +1,64 @@
+<mvc:View controllerName="legacy.dashboard.controller.Month" xmlns:m="sap.m"
+    xmlns:viz="sap.viz.ui5.controls" xmlns:layout="sap.ui.layout" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    height="100%">
+    <m:Page title="Dashboard Legacy" showNavButton="true" navButtonPress=".onNavBack">
+    <m:content>
+    <viz:VizFrame id="idColumn" selectData="myOnClickHandler" width="100%"/>
+ <m:Table id="idTabla" alternateRowColors="true" inset="false" growing="true" growingThreshold="100" items="{
+			path: 'data>/results'
+		   }">
+				<m:headerToolbar>
+				<m:OverflowToolbar>
+					<m:ToolbarSpacer></m:ToolbarSpacer>
+					<m:Button icon="sap-icon://excel-attachment" press="onExport2" />
+				</m:OverflowToolbar>
+			</m:headerToolbar>
+			<m:columns>
+			<m:Column minScreenWidth="Small" demandPopin="false">
+					<m:Text text="Org Ventas" />
+				</m:Column>
+				<m:Column>
+					<m:Text text="Documento" />
+				</m:Column>
+				<m:Column >
+					<m:Text  text="Fecha Doc"/>
+				</m:Column>
+				<m:Column minScreenWidth="Small" demandPopin="false">
+					<m:Text  text="Fecha Inicio Vigencia" />
+				</m:Column>
+				<m:Column minScreenWidth="Small" demandPopin="false">
+					<m:Text text="Fecha Inicio Fin" />
+				</m:Column>
+				<m:Column minScreenWidth="Small" demandPopin="true" >
+					<m:Text text="Pedido Cliente" />
+				</m:Column>
+				<m:Column>
+					<m:Text text="Cliente" />
+				</m:Column>
+				<m:Column>
+					<m:Text text="Nombre" />
+				</m:Column>
+				<m:Column  minScreenWidth="Small" demandPopin="true">
+					<m:Text text="Status Pedido" />
+				</m:Column>
+			</m:columns>
+			<m:items>
+				<m:ColumnListItem>
+					<m:Text text="{data>OrgVentas}" />
+					<m:Text text="{data>DocVentas}" />
+					<m:Text text="{data>FechaDoc}" />
+					<m:Text text="{data>FechaVigInicio}" />
+					<m:Text text="{data>FechaVigFin}" />
+					<m:Text text="{data>PedidoCliente}" />
+					<m:Text text="{data>Cliente}" />
+					<m:Text text="{data>Nombre}" />
+				    <m:ObjectStatus text="{path:'data>StatusPedido',formatter:'.formatter.statusText'}" 
+					               inverted="true" state="{path:'data>StatusPedido', formatter:'.formatter.statusColor'}"
+									 />
+				</m:ColumnListItem>
+			</m:items>
+		</m:Table>
+    </m:content>
+</m:Page>
+</mvc:View>

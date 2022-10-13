@@ -1,0 +1,23 @@
+{
+  "xsappname": "dashboard",
+  "tenant-mode": "dedicated",
+  "description": "Security profile of called application",
+  "scopes": [
+    {
+      "name": "uaa.user",
+      "description": "UAA"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Token_Exchange",
+      "description": "UAA",
+      "scope-references": ["uaa.user"]
+    }
+  ],
+  "oauth2-configuration": {
+    "token-validity": 900, 
+    "redirect-uris": ["https://83943bd4trial-dev-dashboard.cfapps.us10-001.hana.ondemand.com"] ,
+    "credential-types": ["binding-secret","x509"]
+}
+}

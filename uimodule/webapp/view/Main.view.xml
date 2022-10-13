@@ -1,0 +1,134 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.suite.ui.commons" xmlns:m="sap.m" xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:layout="sap.ui.layout" xmlns:mc="sap.suite.ui.microchart" xmlns:core="sap.ui.core"
+	controllerName="legacy.dashboard.controller.Main">
+	<m:Page id="mainPage" title="Dashboard Legacy" navButtonPress=".onNavBack"
+		backgroundDesign="Solid">
+	
+		<fb:FilterBar  id="filterBar" header="Pedidos" reset="onReset" useToolbar="false"  search="onSearch2"  clear="onClear" cancel="onCancel">
+			<fb:filterGroupItems>
+				<fb:FilterGroupItem groupName="G1" visibleInFilterBar="true" name="orgvta" label="ORG VTA"
+					labelTooltip="Tooltip GroupItem Example">
+					<fb:control>
+						<m:ComboBox id="orgventa" showSecondaryValues="true" items="{
+										model: 'org',
+										path: '/OrgVentaSet',
+										sorter: { path: 'Nombre' }
+										}">
+							<core:ListItem key="{org>Id}" text="{org>Id}" additionalText="{org>Nombre}" />
+						</m:ComboBox>
+					</fb:control>
+				</fb:FilterGroupItem>
+			</fb:filterGroupItems>
+		</fb:FilterBar>
+
+		<m:content>
+		  <layout:Grid containerQuery="true" defaultSpan="XL12 L12 M12 S12" width="100%">
+        <layout:VerticalLayout width="100%" class="gridWrapper">
+				<m:FlexBox
+				height="50px"
+				alignItems="Start"
+				justifyContent="Center"
+				>
+				<m:Title id="orgVentaTitle"
+				class="sapUiResponsiveMargin"
+			  level="H1"
+			  text=""></m:Title>
+				
+			</m:FlexBox>  
+
+		<m:FlexBox  class="sapUiResponsiveMargin" wrap="Wrap" alignItems="Center" alignContent="Center" direction="Row">	
+				<m:GenericTile class="sapUiResponsiveMargin" header="Pedidos {estados>/4/total}"
+		frameType="TwoByOne" press="pressPedidos">
+		<m:tileContent>
+			<m:TileContent frameType="TwoByOne">
+				<m:content>
+					<mc:ComparisonMicroChart view="Wide"  size="Responsive" shrinkable="true">
+						<mc:data>
+							<mc:ComparisonMicroChartData
+										title="{path:'estados>/0/id',	formatter:'.formatter.statusText'}"
+										value="{estados>/0/count}" displayValue="{estados>/0/count}" color="Good" />
+									<mc:ComparisonMicroChartData
+										title="{path:'estados>/1/id',	formatter:'.formatter.statusText'}"
+										value="{estados>/1/count}" displayValue="{estados>/1/count}" color="Critical" />
+									<mc:ComparisonMicroChartData
+										title="{path:'estados>/2/id',	formatter:'.formatter.statusText'}"
+										value="{estados>/2/count}" displayValue="{estados>/2/count}" color="Error" />
+									<mc:ComparisonMicroChartData
+										title="{path:'estados>/3/id',	formatter:'.formatter.statusText'}"
+										value="{estados>/3/count}" displayValue="{estados>/3/count}" color="Neutral" />
+					
+						</mc:data>
+					</mc:ComparisonMicroChart>
+				</m:content>
+			</m:TileContent>
+		</m:tileContent>
+	</m:GenericTile>
+		<m:GenericTile header="Pedidos Mensuales" class="sapUiResponsiveMargin" press="pressMonth"
+		frameType="TwoByOne">
+		<m:tileContent>
+			<m:TileContent>
+				<m:content>
+					<mc:ColumnMicroChart size="Responsive"  allowColumnLabels="true">
+						<mc:leftBottomLabel>
+							<mc:ColumnMicroChartLabel label="ENE" />
+						</mc:leftBottomLabel>
+						<mc:rightBottomLabel>
+							<mc:ColumnMicroChartLabel label="DIC" />
+						</mc:rightBottomLabel>
+						<mc:columns>
+							<mc:ColumnMicroChartData label="ENE" value="{meses>/0/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="FEB" value="{meses>/1/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="MAR" value="{meses>/2/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="ABR" value="{meses>/3/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="MAY" value="{meses>/4/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="JUN" value="{meses>/5/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="JUL" value="{meses>/6/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="AGO" value="{meses>/7/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="SEP" value="{meses>/8/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="OCT" value="{meses>/9/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="NOV" value="{meses>/10/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="DIC" value="{meses>/11/count}" color="Neutral" />
+						</mc:columns>
+					</mc:ColumnMicroChart>
+				</m:content>
+			</m:TileContent>
+		</m:tileContent>
+	</m:GenericTile>
+		<m:GenericTile header="Pedidos Stacked"  class="sapUiResponsiveMargin" press="pressMonthStacked"
+		frameType="TwoByOne">
+		<m:tileContent>
+			<m:TileContent>
+				<m:content>
+					<mc:ColumnMicroChart size="Responsive"  allowColumnLabels="true">
+						<mc:leftBottomLabel>
+							<mc:ColumnMicroChartLabel label="ENE" />
+						</mc:leftBottomLabel>
+						<mc:rightBottomLabel>
+							<mc:ColumnMicroChartLabel label="DIC" />
+						</mc:rightBottomLabel>
+						<mc:columns>
+							<mc:ColumnMicroChartData label="ENE" value="{meses>/0/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="FEB" value="{meses>/1/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="MAR" value="{meses>/2/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="ABR" value="{meses>/3/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="MAY" value="{meses>/4/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="JUN" value="{meses>/5/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="JUL" value="{meses>/6/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="AGO" value="{meses>/7/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="SEP" value="{meses>/8/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="OCT" value="{meses>/9/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="NOV" value="{meses>/10/count}" color="Neutral" />
+							<mc:ColumnMicroChartData label="DIC" value="{meses>/11/count}" color="Neutral" />
+						</mc:columns>
+					</mc:ColumnMicroChart>
+				</m:content>
+			</m:TileContent>
+		</m:tileContent>
+	</m:GenericTile>
+	
+	</m:FlexBox>
+	 </layout:VerticalLayout>
+      </layout:Grid>
+		</m:content>
+	</m:Page>
+</mvc:View>

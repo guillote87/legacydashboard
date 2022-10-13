@@ -1,0 +1,18 @@
+{
+  "welcomeFile": "legacydashboard/",
+  "authenticationMethod": "none",
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  },
+  "routes": [{
+      "source": "^/(.*)$",
+      "target": "$1",
+      "destination": "destination"
+    }, {
+      "source": "^/pedidos(.*)$",
+      "target": "$1",
+      "destination": "destination"
+    }
+
+  ]
+}

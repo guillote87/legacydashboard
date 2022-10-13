@@ -1,0 +1,180 @@
+{
+  "_version": "1.42.0",
+  "sap.app": {
+    "id": "legacy.dashboard",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{title}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "",
+      "version": ""
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "orgSales": {
+        "uri": "/sap/opu/odata/sap/ZGW_REST_SERVICES/",
+        "type": "OData",
+
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "testing": {
+        "uri": "model/SetPedidos.json",
+        "type": "JSON"
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.102.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "legacy.dashboard.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      },
+      "org": {
+        "dataSource": "orgSales",
+        "preload": true,
+        "settings": {}
+      },
+      "testing2": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "testing"
+      },
+      "Model": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/ChartData.json"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "legacy.dashboard.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false,
+        "bypassed": {
+          "target": "notFound"
+        }
+      },
+      "routes": [{
+          "name": "RouteView1",
+          "pattern": ":?query:",
+          "target": [
+            "TargetView1"
+          ]
+        }, {
+          "pattern": "pedidos/{orgVenta}",
+          "name": "PedidosList",
+          "target": "pedidos"
+        },
+        {
+          "pattern": "month/{orgVenta}",
+          "name": "Month",
+          "target": "month"
+        },
+        {
+          "pattern": "monthStacked/{orgVenta}",
+          "name": "MonthStacked",
+          "target": "monthStacked"
+        }
+      ],
+      "targets": {
+        "TargetView1": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Main",
+          "viewName": "Main"
+        },
+        "pedidos": {
+          "viewType": "XML",
+          "viewId": "PedidosList",
+          "path": "legacy.dashboard.view",
+          "viewName": "PedidosList",
+          "level": 2
+        },
+        "month": {
+          "viewType": "XML",
+          "viewId": "Month",
+          "path": "legacy.dashboard.view",
+          "viewName": "Month",
+          "level": 2
+        },
+        "monthStacked": {
+          "viewType": "XML",
+          "viewId": "MonthStacked",
+          "path": "legacy.dashboard.view",
+          "viewName": "MonthStacked",
+          "level": 2
+        },
+        "notFound": {
+          "viewId": "notFound",
+          "viewName": "NotFound",
+          "transition": "show"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "legacy.dashboard.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

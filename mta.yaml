@@ -1,0 +1,96 @@
+ID: dashboard
+_schema-version: 3.2.0
+version: 0.0.1
+parameters:
+  enable-parallel-deployments: true
+modules:
+  - name: dashboard
+    type: nodejs
+    path: approuter
+    parameters:
+      disk-quota: 1024M
+      memory: 1024M
+      buildpack: https://github.com/cloudfoundry/nodejs-buildpack/releases/download/v1.7.25/nodejs-buildpack-cflinuxfs3-v1.7.25.zip
+    requires:
+      - name: dashboard_destination
+      - name: dashboard_html5_repo_runtime
+      - name: dashboard_uaa
+  - name: webapp_deployer
+    type: com.sap.application.content
+    path: deployer
+    requires:
+      - name: dashboard_html5_repo_host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+        - name: uimodule
+          artifacts:
+            - dist/uimodule.zip
+          target-path: resources/
+  - name: uimodule
+    type: html5
+    path: uimodule
+    build-parameters:
+      builder: custom
+      commands:
+        - npm run build:uimodule --prefix ..
+      supported-platforms: []
+  - name: dashboard_destination_content
+    type: com.sap.application.content
+    build-parameters:
+      no-source: true
+    requires:
+      - name: dashboard_uaa
+        parameters:
+          service-key:
+            name: dashboard_uaa_key
+      - name: dashboard_html5_repo_host
+        parameters:
+          service-key:
+            name: dashboard_html5_repo_host_key
+      - name: dashboard_destination
+        parameters:
+          content-target: true
+    parameters:
+      content:
+        instance:
+          existing_destinations_policy: update
+          destinations:
+            - Name: dashboard_destination_html5
+              ServiceInstanceName: dashboard_html5_repo_host
+              ServiceKeyName: dashboard_html5_repo_host_key
+              sap.cloud.service: dashboard.service
+            - Name: dashboard_destination_uaa
+              Authentication: OAuth2UserTokenExchange
+              ServiceInstanceName: dashboard_uaa
+              ServiceKeyName: dashboard_uaa_key
+              sap.cloud.service: dashboard.service
+resources:
+  - name: dashboard_destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: lite
+      service: destination
+      config:
+        HTML5Runtime_enabled: true
+        version: 1.0.0
+  - name: dashboard_html5_repo_host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+      config:
+        sizeLimit: 8
+  - name: dashboard_html5_repo_runtime
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: app-runtime
+      service: html5-apps-repo
+  - name: dashboard_uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa

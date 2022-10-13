@@ -1,0 +1,149 @@
+<mvc:View controllerName="legacy.dashboard.controller.PedidosList"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:m="sap.m"
+	xmlns:layout="sap.ui.layout"
+    xmlns="sap.suite.ui.microchart"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:semantic="sap.m.semantic"
+	xmlns:mc="sap.suite.ui.microchart"
+	xmlns:core="sap.ui.core">
+    <m:Page id="page" title="{i18n>title}" showNavButton="true" navButtonPress=".onNavBack">
+		<m:FlexBox
+				height="50px"
+				alignItems="Start"
+				justifyContent="Center"
+				>
+				<m:Title id="orgVentaTitle"
+				class="sapUiResponsiveMargin"
+			  level="H1"
+			  text=""></m:Title>	
+			</m:FlexBox>  
+								<m:Text text="({estados>/4/total})" class="sapUiSmallMargin">
+							<m:layoutData>
+								<layout:GridData span="XL12 L12 M12 S12" />
+							</m:layoutData>
+						</m:Text>
+						<m:FlexBox width="22rem" id="chart" height="13rem" alignItems="Start"
+							justifyContent="SpaceBetween">
+							<m:items>
+								<mc:InteractiveDonutChart id="donut" selectionChanged="onSelectionChanged" displayedSegments="4" press="press">
+									<mc:segments>
+										<mc:InteractiveDonutChartSegment
+											label="{path:'estados>/0/id',	formatter:'.formatter.statusText'}"
+											value="{estados>/0/count}" displayedValue="{estados>/0/count}" />
+										<mc:InteractiveDonutChartSegment
+											label="{path:'estados>/1/id',	formatter:'.formatter.statusText'}"
+											value="{estados>/1/count}" displayedValue="{estados>/1/count}" />
+										<mc:InteractiveDonutChartSegment
+											label="{path:'estados>/2/id',	formatter:'.formatter.statusText'}"
+											value="{estados>/2/count}" displayedValue="{estados>/2/count}" />
+										<mc:InteractiveDonutChartSegment
+											label="{path:'estados>/3/id',	formatter:'.formatter.statusText'}"
+											value="{estados>/3/count}" displayedValue="{estados>/3/count}" />
+									</mc:segments>
+								</mc:InteractiveDonutChart>
+							</m:items>
+						</m:FlexBox>
+					
+			<m:IconTabBar
+				id="iconTabBar"
+				select=".onQuickFilter"
+				expandable="false">
+				<m:items>
+					<m:IconTabFilter
+						key="all"
+						showAll="true"
+						count="{estados>/4/total}"
+						text="Pedidos"/>
+					<m:IconTabSeparator/>
+					<m:IconTabFilter
+						key="prepagoPendiente"
+						icon="sap-icon://message-information"
+						iconColor="Information"
+						count="{estados>/0/count}"
+						text="{path:'estados>/2/StatusPedido',	formatter:'.formatter.statusText'}"/>
+					<m:IconTabFilter
+						key="liberado"
+						icon="sap-icon://message-success"
+						iconColor="Positive"
+					    count="{estados>/1/count}"
+						text="{path:'estados>/1/StatusPedido',	formatter:'.formatter.statusText'}"/>
+					<m:IconTabFilter
+						key="vencido"
+						icon="sap-icon://message-warning"
+						iconColor="Critical"
+						count="{estados>/2/count}"
+						text="{path:'estados>/0/StatusPedido',	formatter:'.formatter.statusText'}"/>
+						<m:IconTabFilter
+						key="cancelado"
+						icon="sap-icon://message-error"
+						iconColor="Negative"
+						count="{estados>/3/count}"
+						text="{path:'estados>/3/StatusPedido',	formatter:'.formatter.statusText'}"/>
+				</m:items>
+				<m:content>
+								
+				
+ <m:Table id="idTablaPedidos" alternateRowColors="true" inset="false" growing="true" growingThreshold="100" items="{
+			path: 'data>/results',
+			 sorter: [{
+        		path: 'DocVentas', 
+        		descending: 'true'
+      			}]
+		   }">
+			<m:headerToolbar>
+				<m:OverflowToolbar>
+					<m:ToolbarSpacer></m:ToolbarSpacer>
+					<m:Button icon="sap-icon://excel-attachment" press="onExport" />
+				</m:OverflowToolbar>
+			</m:headerToolbar>
+			<m:columns>
+				<m:Column minScreenWidth="Small" demandPopin="false">
+					<m:Text text="Org Ventas" />
+				</m:Column>
+				<m:Column>
+					<m:Text text="Documento" />
+				</m:Column>
+				<m:Column >
+					<m:Text  text="Fecha Doc"/>
+				</m:Column>
+				<m:Column minScreenWidth="Small" demandPopin="false">
+					<m:Text  text="Fecha Inicio Vigencia" />
+				</m:Column>
+				<m:Column minScreenWidth="Small" demandPopin="false">
+					<m:Text text="Fecha Inicio Fin" />
+				</m:Column>
+				<m:Column minScreenWidth="Small" demandPopin="true" >
+					<m:Text text="Pedido Cliente" />
+				</m:Column>
+				<m:Column>
+					<m:Text text="Cliente" />
+				</m:Column>
+				<m:Column>
+					<m:Text text="Nombre" />
+				</m:Column>
+				<m:Column  minScreenWidth="Small" demandPopin="true">
+					<m:Text text="Status Pedido" />
+				</m:Column>
+			</m:columns>
+			<m:items>
+				<m:ColumnListItem>
+					<m:Text text="{data>OrgVentas}" />
+					<m:Text text="{data>DocVentas}" />
+					<m:Text text="{data>FechaDoc}" />
+					<m:Text text="{data>FechaVigInicio}" />
+					<m:Text text="{data>FechaVigFin}" />
+					<m:Text text="{data>PedidoCliente}" />
+					<m:Text text="{data>Cliente}" />
+					<m:Text text="{data>Nombre}" />
+				    <m:ObjectStatus text="{path:'data>StatusPedido',formatter:'.formatter.statusText'}" 
+					               inverted="true" state="{path:'data>StatusPedido', formatter:'.formatter.statusColor'}"
+									 />
+				</m:ColumnListItem>
+			</m:items>
+		</m:Table>
+		</m:content>
+			</m:IconTabBar>
+	
+    </m:Page>
+</mvc:View>
