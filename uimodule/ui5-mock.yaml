@@ -42,7 +42,7 @@ server:
           urlPath: /sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV
           metadataXmlPath: ./webapp/localService/metadata.xml
           mockdataRootPath: ./webapp/localService/data
-          generateMockData: true
+          #generateMockData: true
 builder:
   customTasks:
     - name: ui5-task-zipper

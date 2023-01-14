@@ -10,3 +10,4 @@ Makefile*
 mta-*
 approuter/*/webapp/
 model/SetPedidos.json
+.yo-rc.json

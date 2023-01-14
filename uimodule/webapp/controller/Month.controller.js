@@ -1,9 +1,9 @@
 sap.ui.define([
     "legacy/dashboard/controller/BaseController",
     "legacy/dashboard/utils/formatter",
-    'sap/ui/export/library',
+    "sap/f/library",
     'sap/ui/export/Spreadsheet',
-], function (BaseController, formatter,exportLibrary,Spreadsheet) {
+], function (BaseController,formatter,exportLibrary,Spreadsheet) {
     "use strict";
     var EdmType = exportLibrary.EdmType
     return BaseController.extend("legacy.dashboard.controller.Month", {

@@ -2,7 +2,7 @@
 	xmlns:layout="sap.ui.layout" xmlns:mc="sap.suite.ui.microchart" xmlns:core="sap.ui.core"
 	controllerName="legacy.dashboard.controller.Main">
 	<m:Page id="mainPage" title="Dashboard Legacy" navButtonPress=".onNavBack"
-		backgroundDesign="Solid">
+		backgroundDesign="Solid" >
 	
 		<fb:FilterBar  id="filterBar" header="Pedidos" reset="onReset" useToolbar="false"  search="onSearch2"  clear="onClear" cancel="onCancel">
 			<fb:filterGroupItems>
@@ -20,7 +20,6 @@
 				</fb:FilterGroupItem>
 			</fb:filterGroupItems>
 		</fb:FilterBar>
-
 		<m:content>
 		  <layout:Grid containerQuery="true" defaultSpan="XL12 L12 M12 S12" width="100%">
         <layout:VerticalLayout width="100%" class="gridWrapper">
@@ -129,6 +128,11 @@
 	</m:FlexBox>
 	 </layout:VerticalLayout>
       </layout:Grid>
+	       <m:FlexBox width="95%" alignItems="Center"
+				justifyContent="End">
+        <m:Text text="Powered by"></m:Text>
+               <m:Image src="https://gqtesting.s3.amazonaws.com/logo.png"  width="120px"/>   
+          </m:FlexBox>         
 		</m:content>
 	</m:Page>
 </mvc:View>

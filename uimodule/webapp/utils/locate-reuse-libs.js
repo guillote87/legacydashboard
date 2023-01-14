@@ -9,7 +9,6 @@
       "sap.base",
       "sap.chart",
       "sap.collaboration",
-      "sap.f",
       "sap.fe",
       "sap.fileviewer",
       "sap.gantt",

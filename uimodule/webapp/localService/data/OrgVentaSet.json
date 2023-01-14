@@ -1,0 +1,83 @@
+ [{
+     "__metadata": {
+                "id": "https://soaqa.sap.navent.com:44300/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/OrgVentaSet('I5BX')",
+                "uri": "https://soaqa.sap.navent.com:44300/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/OrgVentaSet('I5BX')",
+                "type": "ZGW_LISTADO_PEDIDOS_SRV.OrgVenta"
+            },
+            "Idioma": "ES",
+            "Id": "I5BX",
+            "Nombre": "Imobex"
+        }, {
+            "__metadata": {
+                "id": "https://soaqa.sap.navent.com:44300/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/OrgVentaSet('I5FS')",
+                "uri": "https://soaqa.sap.navent.com:44300/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/OrgVentaSet('I5FS')",
+                "type": "ZGW_LISTADO_PEDIDOS_SRV.OrgVenta"
+            },
+            "Idioma": "ES",
+            "Id": "I5FS",
+            "Nombre": "Union"
+        }, {
+            "__metadata": {
+                "id": "https://soaqa.sap.navent.com:44300/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/OrgVentaSet('I5NU')",
+                "uri": "https://soaqa.sap.navent.com:44300/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/OrgVentaSet('I5NU')",
+                "type": "ZGW_LISTADO_PEDIDOS_SRV.OrgVenta"
+            },
+            "Idioma": "ES",
+            "Id": "I5NU",
+            "Nombre": "Union"
+        }, {
+            "__metadata": {
+                "id": "https://soaqa.sap.navent.com:44300/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/OrgVentaSet('I5PR')",
+                "uri": "https://soaqa.sap.navent.com:44300/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/OrgVentaSet('I5PR')",
+                "type": "ZGW_LISTADO_PEDIDOS_SRV.OrgVenta"
+            },
+            "Idioma": "ES",
+            "Id": "I5PR",
+            "Nombre": "Ipro"
+        }, {
+            "__metadata": {
+                "id": "https://soaqa.sap.navent.com:44300/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/OrgVentaSet('I5UN')",
+                "uri": "https://soaqa.sap.navent.com:44300/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/OrgVentaSet('I5UN')",
+                "type": "ZGW_LISTADO_PEDIDOS_SRV.OrgVenta"
+            },
+            "Idioma": "ES",
+            "Id": "I5UN",
+            "Nombre": "Union"
+        }, {
+            "__metadata": {
+                "id": "https://soaqa.sap.navent.com:44300/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/OrgVentaSet('I5WI')",
+                "uri": "https://soaqa.sap.navent.com:44300/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/OrgVentaSet('I5WI')",
+                "type": "ZGW_LISTADO_PEDIDOS_SRV.OrgVenta"
+            },
+            "Idioma": "ES",
+            "Id": "I5WI",
+            "Nombre": "Wimoveis"
+        }, {
+            "__metadata": {
+                "id": "https://soaqa.sap.navent.com:44300/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/OrgVentaSet('IMC')",
+                "uri": "https://soaqa.sap.navent.com:44300/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/OrgVentaSet('IMC')",
+                "type": "ZGW_LISTADO_PEDIDOS_SRV.OrgVenta"
+            },
+            "Idioma": "ES",
+            "Id": "IMC",
+            "Nombre": "Imovelclass"
+        }, {
+            "__metadata": {
+                "id": "https://soaqa.sap.navent.com:44300/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/OrgVentaSet('IWB')",
+                "uri": "https://soaqa.sap.navent.com:44300/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/OrgVentaSet('IWB')",
+                "type": "ZGW_LISTADO_PEDIDOS_SRV.OrgVenta"
+            },
+            "Idioma": "ES",
+            "Id": "IWB",
+            "Nombre": "Imovelweb"
+        }, {
+            "__metadata": {
+                "id": "https://soaqa.sap.navent.com:44300/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/OrgVentaSet('VIVE')",
+                "uri": "https://soaqa.sap.navent.com:44300/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/OrgVentaSet('VIVE')",
+                "type": "ZGW_LISTADO_PEDIDOS_SRV.OrgVenta"
+            },
+            "Idioma": "ES",
+            "Id": "VIVE",
+            "Nombre": "Vive - Brolog"
+        }]
+    

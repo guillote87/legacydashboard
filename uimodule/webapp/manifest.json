@@ -27,16 +27,11 @@
       "orgSales": {
         "uri": "/sap/opu/odata/sap/ZGW_REST_SERVICES/",
         "type": "OData",
-
         "settings": {
           "annotations": [],
           "localUri": "localService/metadata.xml",
           "odataVersion": "2.0"
         }
-      },
-      "testing": {
-        "uri": "model/SetPedidos.json",
-        "type": "JSON"
       }
     }
   },
@@ -63,7 +58,8 @@
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
-        "sap.fe.templates": {}
+        "sap.fe.templates": {},
+        "sap.ushell": {}
       }
     },
     "contentDensities": {
@@ -86,10 +82,6 @@
         "dataSource": "orgSales",
         "preload": true,
         "settings": {}
-      },
-      "testing2": {
-        "type": "sap.ui.model.json.JSONModel",
-        "dataSource": "testing"
       },
       "Model": {
         "type": "sap.ui.model.json.JSONModel",
