@@ -25,7 +25,7 @@
         }
       },
       "orgSales": {
-        "uri": "/sap/opu/odata/sap/ZGW_REST_SERVICES/",
+        "uri": "/sap/opu/odata/sap/ZGW_LISTADO_PEDIDOS_SRV/",
         "type": "OData",
         "settings": {
           "annotations": [],
