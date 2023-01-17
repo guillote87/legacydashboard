@@ -25,7 +25,7 @@
         }
       },
       "orgSales": {
-        "uri": "/api",
+        "uri": "/api2",
         "type": "OData",
         "settings": {
           "annotations": [],
