@@ -16,7 +16,7 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "/api",
+        "uri": "/api/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -25,7 +25,7 @@
         }
       },
       "orgSales": {
-        "uri": "/api2",
+        "uri": "/api2/?sap-client=300",
         "type": "OData",
         "settings": {
           "annotations": [],
